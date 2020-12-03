@@ -1,16 +1,12 @@
 <?php
 
-// Fonction connexion bdd //
-
-
-
 // Fonction verif login //
 
 function checkLogin($login)
 {
     $connexion = new PDO("mysql:host=localhost;dbname=discussion",'root','') ;
     $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ;
-    
+
     $requete = $connexion->prepare("SELECT COUNT(`login`) 
                                             FROM `utilisateurs`
                                              WHERE `login` = :login;"
@@ -33,5 +29,7 @@ function checkLogin($login)
         return -1 ; 
     }
 }
+
+
 
 ?>

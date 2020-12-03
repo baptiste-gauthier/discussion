@@ -3,9 +3,9 @@
     
     if(isset($_POST['valider']))
     {
-        $login = $_POST['login'] ; 
+        $login = htmlspecialchars($_POST['login']) ; 
         $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-        $confirm_pass = $_POST['confirm_pass'] ; 
+        $confirm_pass = htmlspecialchars($_POST['confirm_pass']) ; 
 
         if(!empty($login) && !empty($pass) && !empty($confirm_pass))
         {
@@ -28,6 +28,9 @@
                         $requete->bindParam(':password', $pass) ; 
 
                         $requete->execute();
+
+                        header("Location: connexion.php") ;
+                        exit();
     
                     }
                     elseif($result == 1)
@@ -101,7 +104,7 @@
 
                     </form>
 
-                </div>
+                </article>
            
             </section>
 

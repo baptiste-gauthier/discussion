@@ -87,28 +87,27 @@
                 <article class="contenu_formulaire">
                     
                     <form action="inscription.php" method="POST">
-                        <div>
-                            <label for="login">Login</label>
-                            <input type="text" id="login" name="login" required>
-                        </div>
-
-                        <div>
-                            <label for="password">Mot de passe </label>
-                            <input type="password" id="password" name="pass" required>
-                        </div>
-
-                        <div>
-                            <label for="confirm_password">Confirmation mot de passe </label>
-                            <input type="password" id="confirm_password" name="confirm_pass" required>
-                        </div>
                         
-                        <div>
-                            <input type="submit" value="Envoyer" name="valider">
-                        </div>    
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login" required>
+
+                        <label for="password">Mot de passe </label>
+                        <input type="password" id="password" name="pass" required>
+
+                        <label for="confirm_password">Confirmation mot de passe </label>
+                        <input type="password" id="confirm_password" name="confirm_pass" required>
+
+                        <input type="submit" value="Envoyer" name="valider">
+                            
 
                     </form>
 
                 </article>
+                <article class="vignette_manga">
+                    <div>
+                        <img src="../images/jojo.png">
+                    </div>
+                </article>    
            
             </section>
 

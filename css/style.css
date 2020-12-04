@@ -56,5 +56,93 @@ header a {
     padding : 0px 20px ; 
 }
 
+#pres {
+    height: 100vh;
+    background-image: url(../images/guts_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    object-fit: cover;
+}
+
+.contenu_pres {
+    display: flex;
+    
+}
+
+.titre_pres {
+    width: 50% ; 
+    padding: 50px;
+    margin: 50px;
+}
+
+.titre_pres h1 {
+    
+    font-size: 3vw;
+}
+
+.titre_pres p {
+    font-size : 0.9vw ;
+}
+
+.description_pres {
+    width : 50% ; 
+    padding: 50px;
+    margin: 50px;
+    line-height: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.description_pres button{
+    width : 40% ; 
+    padding: 25px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+    font-family: 'Roboto Mono', monospace; 
+    border : 2px solid white ; 
+    outline : none ; 
+    font-weight: 700;
+    font-size: 1.2vw;
+    margin: 50px;
+    transition: .4s;
+}
+
+.description_pres h3{
+    margin : 20px 0px ; 
+    font-size: 1vw;
+}
+
+.description_pres h5 {
+    font-size : 0.8vw ; 
+    font-weight: 200;
+}
+
+.description_pres button:hover{
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+.description_pres div img {
+    width : 100% ; 
+}
+
+.description_pres div {
+    width : 50% ; 
+    margin : 30px auto ; 
+    box-shadow: 30px 30px 0px -16px rgba(255,255,255,1);
+}
+
+/* CSS FORM */
+
+.contenu_formulaire{
+    width : 80% ; 
+    margin : auto ; 
+    display: flex;
+    justify-content: center;
+}
 
 

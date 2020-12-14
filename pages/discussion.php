@@ -6,6 +6,19 @@ if(!isset($_SESSION['id']))
     header("Location: connexion.php") ;
 }
 
+if(isset($_POST['envoyer']))
+{
+    if(!empty($_POST['message']))
+    {
+
+    }
+    else{
+        echo 'Veuillez écrire votre message' ;
+    }
+}
+
+
+
 ?>
 
 <DOCTYPE! html>
@@ -32,8 +45,13 @@ if(!isset($_SESSION['id']))
                 
                 <article class="contenu_discussion">
                     <h1> Discussion </h1>
-                </article>
+                    <form action="discussion.php" method="POST">
+                        <label for="message"> Message : </label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
 
+                        <input type="submit" value="Envoyer" name="envoyer">
+                    </form>    
+                </article>
            
             </section>
 

@@ -48,6 +48,11 @@
             elseif($_POST['pass'] != $confirm_pass)
             {
                 echo 'mot de passe différents' ;
+                $diff_pass = '<label for="password">Mot de passe </label>
+                <input type="password" id="password" name="pass" class="animate__animated animate__shakeX" required>
+
+                <label for="confirm_password">Confirmation mot de passe </label>
+                <input type="password" id="confirm_password" name="confirm_pass" class="animate__animated animate__shakeX" required>' ; 
             }
             else
             {
@@ -101,12 +106,24 @@
                         <label for="login">Login</label>
                         <input type="text" id="login" name="login" required>
 
-                        <label for="password">Mot de passe </label>
-                        <input type="password" id="password" name="pass" required>
+                        <?php 
+                            if(isset($diff_pass))
+                            {
+                                echo $diff_pass ;
+                            }
+                            else
+                            {
+                                ?>
+                            <label for="password">Mot de passe </label>
+                            <input type="password" id="password" name="pass" required>
 
-                        <label for="confirm_password">Confirmation mot de passe </label>
-                        <input type="password" id="confirm_password" name="confirm_pass" required>
+                            <label for="confirm_password">Confirmation mot de passe </label>
+                            <input type="password" id="confirm_password" name="confirm_pass" required>
+                                <?php
+                            }
 
+                            ?>
+                        
                         <input type="submit" value="Envoyer" name="valider">
                             
 
@@ -131,3 +148,4 @@
     </body>
 
 </html>
+

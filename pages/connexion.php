@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if(isset($_POST['valider']))
     {
@@ -30,8 +31,8 @@
                     $_SESSION['id'] = $result[0]['id'] ;
                     
                     echo 'bravo vous êtes connecter' ; 
-                    
-                    echo $_SESSION['id'] ;
+                    header("Location: profil.php") ;
+        
                 }
 
                 else {
@@ -56,12 +57,24 @@
 
     <head>
         <title> Page connexion </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>  
     
     <body>
 
         <header>
-        
+            <?php 
+                if(isset($_SESSION['id']))
+                {
+                    require("../include/header_connect_pages.php");
+                }
+                else{
+                    require("../include/header_disconnect_pages.php");
+                }
+            ?>
         </header>
 
         <main>
@@ -71,30 +84,31 @@
                 <article class="contenu_formulaire">
                     
                     <form action="connexion.php" method="POST">
-                        <div>
-                            <label for="login">Login</label>
-                            <input type="text" id="login" name="login" required>
-                        </div>
+                        
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login" required>
 
-                        <div>
-                            <label for="password">Mot de passe </label>
-                            <input type="password" id="password" name="pass" required>
-                        </div>
+                        <label for="password">Mot de passe </label>
+                        <input type="password" id="password" name="pass" required>
 
-                        <div>
-                            <input type="submit" value="Envoyer" name="valider">
-                        </div>    
-
+                        <input type="submit" value="Envoyer" name="valider">
+                          
                     </form>
 
                 </article>
+
+                <article class="vignette_manga">
+                    <div>
+                        <img src="../images/fma.png" alt="img_fma">
+                    </div>
+                </article>   
 
             </section>
 
         </main>
 
         <footer>
-
+        <?php require("../include/footer.php") ?> 
         </footer>
 
 

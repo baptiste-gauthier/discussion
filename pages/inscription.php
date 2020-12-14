@@ -1,4 +1,5 @@
 <?php
+    session_start(); 
     require("../fonctions/fonctions.php") ; 
     
     if(isset($_POST['valider']))
@@ -72,12 +73,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>  
     
     <body>
 
         <header>
-            <?php require("../include/header_disconnect.php") ?>
+        <?php 
+            if(isset($_SESSION['id']))
+            {
+                require("../include/header_connect_pages.php");
+            }
+            else{
+                require("../include/header_disconnect_pages.php");
+            }
+        ?>
         </header>
 
         <main>
@@ -103,15 +113,20 @@
                     </form>
 
                 </article>
+
                 <article class="vignette_manga">
                     <div>
-                        <img src="../images/jojo.png">
+                        <img src="../images/jojo.png" alt="img_jojo">
                     </div>
                 </article>    
            
             </section>
 
         </main>
+
+        <footer>
+            <?php require("../include/footer.php") ?> 
+        </footer>    
                                         
     </body>
 

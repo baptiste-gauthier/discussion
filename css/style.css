@@ -62,17 +62,22 @@ header a {
     background-repeat: no-repeat;
     background-size: 100%;
     object-fit: cover;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-evenly;
 }
 
 .contenu_pres {
     display: flex;
+    height: 100%;
+    
     
 }
 
 .titre_pres {
     width: 50% ; 
-    padding: 50px;
-    margin: 50px;
+    padding: 30px;
+    margin: 10px;
 }
 
 .titre_pres h1 {
@@ -86,8 +91,8 @@ header a {
 
 .description_pres {
     width : 50% ; 
-    padding: 50px;
-    margin: 50px;
+    padding: 0px 20px 20px 20px;
+    margin: 0px 30px 30px 30px;
     line-height: 2.5em;
     display: flex;
     flex-direction: column;
@@ -97,7 +102,7 @@ header a {
 
 .description_pres button{
     width : 40% ; 
-    padding: 25px;
+    padding: 20px;
     text-transform: uppercase;
     background-color: transparent;
     color: white;
@@ -106,7 +111,7 @@ header a {
     outline : none ; 
     font-weight: 700;
     font-size: 1.2vw;
-    margin: 50px;
+    margin: 20px;
     transition: .4s;
 }
 
@@ -190,6 +195,8 @@ form input[type="submit"]:hover{
 .vignette_manga{
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .vignette_manga div img {
@@ -201,6 +208,35 @@ form input[type="submit"]:hover{
     width:20% ;
     margin : 20px 0px ;
     box-shadow: 65px 65px 0px -43px rgba(255,255,255,1);
+}
+
+/*CSS FOOTER */
+
+.contenu_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+} 
+
+.contenu_footer ul {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenu_footer li{
+    padding: 10px;
+    margin : 0px 20px ;
+}
+
+.rs {
+    padding : 10px;
+}
+
+.contenu_rs i{
+    margin : 10px 20px ;
 }
 
 

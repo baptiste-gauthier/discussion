@@ -35,8 +35,6 @@ if(isset($_POST['valider']))
                     {
                         $changements = 'Changements effectués' ; 
                     }
-                     
-    
 
                     $sql = $connexion->prepare("SELECT * FROM utilisateurs WHERE id = :id") ;
                     $sql->bindParam(':id', $id) ; 

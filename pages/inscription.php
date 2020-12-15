@@ -1,6 +1,12 @@
 <?php
     session_start(); 
     require("../fonctions/fonctions.php") ; 
+
+    if(isset($_SESSION['id']))
+    {
+        header("Location: ../index.php") ;
+        exit();
+    }
     
     if(isset($_POST['valider']))
     {

@@ -8,14 +8,33 @@ if(!isset($_SESSION['id']))
 
 if(isset($_POST['envoyer']))
 {
+    $message = $_POST['message'] ;
+    $id = $_SESSION['id'] ;
+    $date = date('Y-m-d H:i:s');
+
     if(!empty($_POST['message']))
     {
+        $connexion = new PDO("mysql:host=localhost;dbname=discussion",'root','') ; 
+        $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ;
 
+        $requete = $connexion->prepare("INSERT INTO messages (message, id_utilisateur, date)
+                                            VALUES(:mess, :id_utilisateur, :date)"
+        );
+
+        $requete->bindParam(':mess', $message) ;
+        $requete->bindParam(':id_utilisateur', $id) ;
+        $requete->bindParam(':date', $date) ;
+
+        $requete->execute(); 
+
+        echo ' Merci pour votre commentaire ! ' ;
+       
     }
     else{
         echo 'Veuillez écrire votre message' ;
     }
 }
+
 
 
 
@@ -38,13 +57,38 @@ if(isset($_POST['envoyer']))
         <header>
             <?php require("../include/header_connect_pages.php"); ?>
         </header>
-
+        
         <main>
-
+            
+            
             <section id="discussion">
+                <h1> Discussion </h1>
+
+            <?php 
+
+            $connexion = new PDO("mysql:host=localhost;dbname=discussion",'root','') ; 
+            $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ;
+
+            $requete = $connexion->prepare("SELECT login,message,date 
+                                                FROM utilisateurs
+                                                    INNER JOIN messages
+                                                        ON utilisateurs.id = messages.id_utilisateur"
+            );
+
+            $requete->execute();
+            
+            $result = $requete->fetchAll();
+
+            //var_dump($result);
+
+            for($i = 0; isset($result[$i]); $i++)
+            {
+                echo '<p class="message"> Par '.$result[$i]['login'].' le '.$result[$i]['date'].' '.$result[$i]['message'].'</p>';
+            }
+            
+            ?>
                 
                 <article class="contenu_discussion">
-                    <h1> Discussion </h1>
                     <form action="discussion.php" method="POST">
                         <label for="message"> Message : </label>
                         <textarea id="message" name="message" placeholder="Votre message..." required></textarea>

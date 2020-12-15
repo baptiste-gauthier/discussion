@@ -36,7 +36,7 @@
                 }
 
                 else {
-                    echo 'mot de passe ou login incorrect' ;
+                    $error = '<p class="error">Mot de passe ou login incorrect</p>' ;
                 }
             }
             catch(PDOExeption $e)
@@ -46,7 +46,7 @@
         }
         else
         {
-            echo 'Veuillez remplir tous les champs du formulaire' ;
+            $error_champs = '<p class="error">Veuillez remplir tous les champs du formulaire</p>' ;
         }
     }
 ?>
@@ -80,6 +80,7 @@
         <main>
 
             <section id="formulaire">
+            <h1> Connexion </h1>
                     
                 <article class="contenu_formulaire">
                     
@@ -90,6 +91,17 @@
 
                         <label for="password">Mot de passe </label>
                         <input type="password" id="password" name="pass" required>
+
+                        <?php
+                            if(isset($error))
+                            {
+                                echo $error ;
+                            }
+                            elseif(isset($error_champs))
+                            {
+                                echo $error_champs ;
+                            }
+                        ?>
 
                         <input type="submit" value="Envoyer" name="valider">
                           

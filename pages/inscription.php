@@ -36,7 +36,7 @@
                     }
                     elseif($result == 1)
                     {
-                        echo 'login déjà existant' ;
+                        $login_exist = '<p class="error">login déjà existant</p>' ;
                     }
                    
                 }
@@ -52,17 +52,24 @@
                 <input type="password" id="password" name="pass" class="animate__animated animate__shakeX" required>
 
                 <label for="confirm_password">Confirmation mot de passe </label>
-                <input type="password" id="confirm_password" name="confirm_pass" class="animate__animated animate__shakeX" required>' ; 
+                <input type="password" id="confirm_password" name="confirm_pass" class="animate__animated animate__shakeX" required>
+                <p class="error"> Mots de passe différents </p>' ; 
+                
             }
             else
             {
-                echo 'Mot de passe non valide : Il doit contenir au minimum 10 caractères, avec une majuscule, une minuscule, un chiffre et un caractère spécial.' ;  
+                $error_pass = '<label for="password">Mot de passe </label>
+                <input type="password" id="password" name="pass" required>
+
+                <label for="confirm_password">Confirmation mot de passe </label>
+                <input type="password" id="confirm_password" name="confirm_pass" required>
+                <p class="error"> Mot de passe invalide : Le mot de passe faire au minimum 10 caractères avec 1 majuscule, 1 chiffre et 1 caractère spécial </p>' ;  
             }
 
         }
         else
         {
-            echo 'Veuillez remplir tous les champs' ;
+            $error_champs = '<p class="error">Veuillez remplir tous les champs</p>' ;
         }
         
     }
@@ -98,6 +105,7 @@
         <main>
 
             <section id="formulaire">
+            <h1> Inscription </h1>
                 
                 <article class="contenu_formulaire">
                     
@@ -110,6 +118,11 @@
                             if(isset($diff_pass))
                             {
                                 echo $diff_pass ;
+                                
+                            }
+                            elseif(isset($error_pass))
+                            {
+                                echo $error_pass ; 
                             }
                             else
                             {
@@ -120,6 +133,15 @@
                             <label for="confirm_password">Confirmation mot de passe </label>
                             <input type="password" id="confirm_password" name="confirm_pass" required>
                                 <?php
+                            }
+
+                            if(isset($error_champs))
+                            {
+                                echo $error_champs ; 
+                            }
+                            elseif(isset($login_exist))
+                            {
+                                echo $login_exist ;
                             }
 
                             ?>

@@ -36,7 +36,9 @@ if(isset($_POST['valider']))
     
                     echo 'changements effectués' ; 
 
-                    $sql = $connexion->prepare("SELECT * FROM utilisateurs") ;
+                    $sql = $connexion->prepare("SELECT * FROM utilisateurs WHERE id = :id") ;
+                    $sql->bindParam(':id', $id) ; 
+
                     $sql->execute(); 
 
                     $result = $sql->fetch(); 
@@ -47,7 +49,7 @@ if(isset($_POST['valider']))
 
                 }
                 else{
-                    echo 'login déjà pris';
+                    $error_login = '<p class="error">Ce login déjà pris</p>';
                 }
                 
             }
@@ -58,15 +60,15 @@ if(isset($_POST['valider']))
         }
         elseif($_POST['new_pass'] != $new_confirm_pass)
         {
-            echo 'mot de passes différents' ;
+            $error_pass = '<p class="error"> Mots de passe différents </p>' ;
         }
         else
         {
-            echo 'Mot de passe non valide : Il doit contenir au minimum 10 caractères, avec une majuscule, une minuscule, un chiffre et un caractère spécial.' ; 
+            $check_pass = '<p class="error">Mot de passe non valide : Il doit contenir au minimum 10 caractères, avec une majuscule, une minuscule, un chiffre et un caractère spécial.</p>' ; 
         }
     }
     else{
-    echo 'Veuillez remplir tous les champs' ;
+        $error_champs = '<p class="error">Veuillez remplir tous les champs</p>' ;
     }
 }
 
@@ -101,6 +103,7 @@ if(isset($_POST['valider']))
         <main>
 
             <section id="formulaire">
+            <h1> Modifier son profil </h1>
                 
                 <article class="contenu_formulaire">
                     
@@ -114,6 +117,25 @@ if(isset($_POST['valider']))
 
                         <label for="confirm_password">Confirmation du nouveau mot de passe </label>
                         <input type="password" id="confirm_password" name="new_confirm_pass" required>
+                        <?php
+                            if(isset($error_login))
+                            {
+                                echo $error_login ; 
+                            }
+                            elseif( isset($error_pass))
+                            {
+                                echo $error_pass ; 
+                            }
+                            elseif(isset($check_pass))
+                            {
+                                echo $check_pass ;
+                            }
+                            elseif(isset($error_champs))
+                            {
+                                echo $error_champs ;
+                            }
+
+                        ?>
 
                         <input type="submit" value="Envoyer" name="valider">
                             

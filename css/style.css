@@ -14,6 +14,10 @@ body {
     font-family: 'Roboto Mono', monospace;
 }
 
+.titre_pres p {
+    padding: 10px 0px;
+}
+
 /* CSS HEADER */
 
 header a {
@@ -55,6 +59,20 @@ header a {
 .contenu_header li {
     padding : 0px 20px ; 
 }
+
+.deco a {
+    color: black;
+    background-color: white;
+    padding: 10px;
+    transition: .2s;
+}
+
+.deco a:hover
+{
+    background-color: rgba(255, 255, 255, 0.692);
+}
+
+/* CSS PRES */
 
 #pres {
     height: 100vh;
@@ -113,6 +131,13 @@ header a {
     font-size: 1.2vw;
     margin: 20px;
     transition: .4s;
+}
+
+.description_pres form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .description_pres h3{
@@ -230,6 +255,11 @@ form input[type="submit"]:hover{
 
 /*CSS FOOTER */
 
+.contenu_footer a{
+    text-decoration: none;
+    color: black;
+}
+
 .contenu_footer {
     display: flex;
     align-items: center;
@@ -255,6 +285,17 @@ form input[type="submit"]:hover{
 
 .contenu_rs i{
     margin : 10px 20px ;
+    transition: .3s;
+}
+
+.rs a {
+    text-decoration: none;
+    color: black;
+}
+
+.rs i:hover{
+    transform: translateY(-6px);
+    
 }
 
 #discussion {
@@ -271,7 +312,11 @@ form input[type="submit"]:hover{
 }
 
 .message {
-    padding : 10px 0px ;
+    padding : 20px ;
+    margin: 30px 0px;
+    color: black ; 
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: 73px 73px 0px 73px;
 }
 
 .error{

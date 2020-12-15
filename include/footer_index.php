@@ -1,6 +1,6 @@
 <article class="contenu_footer">
     <ul>
-        <a href="../index.php"><li> Accueil </li></a>
+        <a href="index.php"><li> Accueil </li></a>
         <a href="#"><li> Nous contacter </li></a>
         <a href="#"><li> A propos </li></a>
     </ul>    

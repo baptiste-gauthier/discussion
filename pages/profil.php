@@ -31,10 +31,12 @@ if(isset($_POST['valider']))
                     $requete->bindParam(':id', $id) ; 
                     
                     
-                    $requete->execute(); 
-                    var_dump($requete->execute()); 
+                    if($requete->execute()) 
+                    {
+                        $changements = 'Changements effectués' ; 
+                    }
+                     
     
-                    echo 'changements effectués' ; 
 
                     $sql = $connexion->prepare("SELECT * FROM utilisateurs WHERE id = :id") ;
                     $sql->bindParam(':id', $id) ; 
@@ -133,6 +135,10 @@ if(isset($_POST['valider']))
                             elseif(isset($error_champs))
                             {
                                 echo $error_champs ;
+                            }
+                            elseif(isset($changements))
+                            {
+                                echo $changements ;
                             }
 
                         ?>

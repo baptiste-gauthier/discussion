@@ -26,12 +26,10 @@ if(isset($_POST['envoyer']))
         $requete->bindParam(':date', $date) ;
 
         $requete->execute(); 
-
-        echo ' Merci pour votre commentaire ! ' ;
        
     }
     else{
-        echo 'Veuillez écrire votre message' ;
+        $error_msg = '<p class="error">Veuillez écrire votre message</p>' ;
     }
 }
 
@@ -83,7 +81,7 @@ if(isset($_POST['envoyer']))
 
             for($i = 0; isset($result[$i]); $i++)
             {
-                echo '<p class="message"> Par '.$result[$i]['login'].' le '.$result[$i]['date'].' '.$result[$i]['message'].'</p>';
+                echo '<p class="message"> Par <b>'.$result[$i]['login'].'</b> le <em>'.$result[$i]['date'].'</em> '.$result[$i]['message'].'</p>';
             }
             
             ?>
@@ -92,11 +90,17 @@ if(isset($_POST['envoyer']))
                     <form action="discussion.php" method="POST">
                         <label for="message"> Message : </label>
                         <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                        <?php 
+                            if(isset($error_msg))
+                            {
+                                echo $error_msg ;
+                            }
+                        ?>
 
                         <input type="submit" value="Envoyer" name="envoyer">
                     </form>    
                 </article>
-           
+                            
             </section>
 
         </main>

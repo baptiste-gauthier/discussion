@@ -37,13 +37,15 @@
                         <div>
                             <img src="images/eye_guts.png" alt ="yeux_guts">
                         </div>
-                        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error beatae iusto, dolorum sed consectetur est pariatur inventore hic at exercitationem quasi? Exercitationem quos illum consectetur sed molestias minus praesentium debitis.</h3>
-                        <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur neque, tempore fugit corrupti minima molestiae quam repellat nostrum perferendis magni numquam officia harum, autem esse possimus, nam excepturi! Pariatur, odio.</h5>
-                        <button type="submit"> Découvrir</button>
+                        <h3>Découvez notre forum pour discuter de l'actualité manga. Rejoignez dès maintenant notre communauté pour avoir accès aux topics de toutes les dernières sorties et discuter sur le sujet !</h3>
+                        <h5>Pour cela rendez-vous sur l'onglet inscription pour créez votre compte et accéder à la discussion. Venez rejoindre notre communauté ! </h5>
+                        <form action="pages/inscription.php">
+                            <button type="submit"> Découvrir</button>
+                        </form> 
                     </div>
                     <div class="titre_pres">
                         <h1>Bienvenue sur Forum Manga </h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. ,  recusandae quae, ut unde quia, beatae cum dolorem amet numquam adipisci dolores!</p>
+                        <p>Forum dédié à tous ce qui concerne les mangas. Une communauté de fans pour discuter sur toutes les séries existantes et en cours de publications.</p>
                     </div>
                 </article>
             </section>
@@ -52,7 +54,7 @@
         </main>
 
         <footer>
-           <?php require("include/footer.php") ?> 
+           <?php require("include/footer_index.php") ?> 
         </footer>
         
     </body>

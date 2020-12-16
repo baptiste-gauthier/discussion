@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 déc. 2020 à 14:03
+-- Généré le :  mer. 16 déc. 2020 à 09:29
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `id_utilisateur` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `messages`
@@ -59,7 +59,9 @@ INSERT INTO `messages` (`id`, `message`, `id_utilisateur`, `date`) VALUES
 (15, 'zzzzzzzzzzzzzzzzzzzz', 3, '2020-12-15'),
 (16, 'Tart sugar plum chocolate jujubes jelly-o. Donut tiramisu croissant gummi bears muffin.', 5, '2020-12-15'),
 (17, 'yo', 5, '2020-12-15'),
-(18, 'Tart sugar plum chocolate jujubes jelly-o. Donut tiramisu croissant gummi bears muffin.', 5, '2020-12-15');
+(18, 'Tart sugar plum chocolate jujubes jelly-o. Donut tiramisu croissant gummi bears muffin.', 5, '2020-12-15'),
+(19, 'test', 4, '2020-12-16'),
+(20, 'message', 4, '2020-12-16');
 
 -- --------------------------------------------------------
 
@@ -82,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `login`, `password`) VALUES
 (3, 'Test', '$2y$10$1nJf3tb1HLAjXn7nDHsxG.imjlf/qB0bHg0/AVXEctHEymknoccYO'),
 (2, 'User', '$2y$10$AeWwzQTDA.ovjYQTX2JvA.gcvRDLlyhEeyJve4UoshROtyMOsX0bO'),
-(4, 'Tata', '$2y$10$uk2UHlClCIHGIra41BgCr.ox8P.tVL4dH4.ahc1y2khq6QzOxfA1a'),
+(4, 'Titi', '$2y$10$diAxQ2Wd2x.Thywk1lypKeUbyqnNi03lAHqs7fU.C.wqOYwyKmUea'),
 (5, 'Toto', '$2y$10$4Fq08i7elO3h17d.62UhRuibO6nryRWVVXHBypH3z1nmKBk3Gty0O');
 COMMIT;
 
